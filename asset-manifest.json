@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Crypto_price/static/css/main.8294fad5.css",
+    "main.js": "/Crypto_price/static/js/main.213bc6cd.js",
+    "index.html": "/Crypto_price/index.html",
+    "main.8294fad5.css.map": "/Crypto_price/static/css/main.8294fad5.css.map",
+    "main.213bc6cd.js.map": "/Crypto_price/static/js/main.213bc6cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8294fad5.css",
+    "static/js/main.213bc6cd.js"
+  ]
+}
