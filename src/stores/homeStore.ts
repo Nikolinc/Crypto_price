@@ -1,6 +1,5 @@
 import axios from "axios";
 import {createEffect, createEvent, createStore} from "effector";
-import coinType from "../type/storeType";
 import coinArrayType from "../type/storeType";
 
 
@@ -10,10 +9,10 @@ export const homeStore = createEffect({
 
     const res =  await axios.get("https://api.coingecko.com/api/v3/search/trending");
     console.log(res);
-    const coins = res.data.coins.map((coin: coinType) => {
+    const coins = res.data.coins.map((coin: coinArrayType) => {
       return {
         name: coin.item.name,
-        image: coin.item.large,
+        image: coin.item.small,
         id: coin.item.coin_id,
         price: coin.item.price_btc,
     }})
