@@ -1,6 +1,7 @@
 {
   "name": "crypto_price",
   "version": "0.1.0",
+  "homepage": "https://Nikolinc.github.io/Crypto_price",
   "private": true,
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
@@ -24,6 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
   }
