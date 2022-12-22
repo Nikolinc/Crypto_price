@@ -3,7 +3,7 @@ export default interface coinType{
      item: {
          name: string;
          large: string;
-         id: number;
+         coin_id: number;
          price_btc: number;
      };
 }

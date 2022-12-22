@@ -3,11 +3,6 @@ import {createEffect, createEvent, createStore} from "effector";
 import coinType from "../type/storeType";
 import coinArrayType from "../type/storeType";
 
-export const stopLoadTickets = createEvent();
-export const searchFailStop = createEvent();
-export const $notStopSearch = createStore(true)
-    .on(stopLoadTickets, () => false)
-    .on(searchFailStop, () => false);
 
 export const homeStore = createEffect({
 
@@ -19,16 +14,33 @@ export const homeStore = createEffect({
       return {
         name: coin.item.name,
         image: coin.item.large,
-        id: coin.item.id,
+        id: coin.item.coin_id,
         price: coin.item.price_btc,
     }})
-
+    console.log(res);
+    coin.push(coins);
     coin.push(coins);
     return coin;
 }});
 
+homeStore.watch(params=>{
+  console.log('эффект вызван с аргументом',params);
+})
+
+homeStore.done.watch(({result, params}) => {
+  console.log('вызвов с аргументом', params)
+  console.log('завершён со значением', result)
+})
+
+homeStore.fail.watch(({error, params}) => {
+  console.log('вызов с аргументом', params)
+  console.log('завершён с ошибкой', error)
+})
+
+export const $loading = homeStore.pending;
+
 export const $coins = createStore<coinArrayType[]>([])
     .on(homeStore.doneData, (_, answer) =>
-        answer);
+        answer)
 
 
