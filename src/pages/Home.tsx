@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {$coins, $loading, homeStore,} from '../stores/homeStore';
+import {$coins, $loading, getQuery, homeStore, sherCoins,} from '../stores/homeStore';
 import {useUnit} from "effector-react";
 import {Link} from "react-router-dom";
 
@@ -12,8 +12,7 @@ export default function Home(){
 
   useEffect(()=>{
     homeStore();
-
-
+    sherCoins();
   },[]);
 
 
@@ -33,7 +32,12 @@ export default function Home(){
         <input
             type="text"
             id="UserEmail"
-            placeholder="Email"
+            onChange={e=>{
+                console.log(e.target.value);
+                getQuery(e.target.value)
+            }
+        }
+              placeholder="Email"
             className=" peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
 
