@@ -10,6 +10,7 @@ export default function Header(){
                             <span className="sr-only">Home</span>
                             <img src="https://img.icons8.com/ios-filled/100/12B886/coins.png" width={"50px"}/>
                         </a>
+                        Crypto price
                     </div>
 
                     <div className="hidden md:block">
