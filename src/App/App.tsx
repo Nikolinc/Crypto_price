@@ -9,7 +9,7 @@ export default function App() {
     <BrowserRouter>
         <Header/>
       <Routes>
-        <Route path = '/Crypto_price'  element = {<Home/>}/>
+        <Route index element = {<Home/>}/>
         <Route path = '/Crypto_price/id/:id' element ={<Show/>}/>
       </Routes>
   </BrowserRouter>
