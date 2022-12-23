@@ -1,5 +1,7 @@
 
 export default interface coinType{
+    market_cap_rank: number;
+    coin_id: any;
     image: any;
      item: {
          small: string;

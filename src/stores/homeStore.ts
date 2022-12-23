@@ -30,18 +30,23 @@ const $query = createStore<string>("")
 export const sherCoins = createEffect( {
   handler: async (query:string) => {
     const res =  await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`);
-    console.log("map",res.data.coins)
-    const coins = res.data.coins.map( (coin:coinArrayType)=> {
-      console.log("coin",coin);
 
-      return {
-        name: coin.item.name,
-        image: coin.item.large,
-        id: coin.item.coin_id,
-        price: coin.item.price_btc,
-      }})
+    const coins:coinArrayType[] =[];
+    res.data.coins.forEach((coin:coinArrayType) => {
 
-    console.log("coins",coins);
+      coins.push({
+        market_cap_rank: 0,
+        item: {coin_id: 0, large: "", name: "", price_btc: 0, small: ""},
+        large: "",
+        name: coin.name,
+        coin_id: undefined,
+        image: coin.large,
+        id: coin.id,
+        price_btc: coin.market_cap_rank
+      });
+    });
+
+
     return coins;
   }
 })
