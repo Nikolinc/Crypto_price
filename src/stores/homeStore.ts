@@ -13,8 +13,8 @@ export const homeStore = createEffect({
       return {
         name: coin.item.name,
         image: coin.item.small,
-        id: coin.item.coin_id,
-        price: coin.item.price_btc,
+        id: coin.item.id,
+        price: coin.item.price_btc.toFixed(12)
     }})
 
     return coins;
@@ -36,7 +36,7 @@ export const sherCoins = createEffect( {
 
       coins.push({
         market_cap_rank: 0,
-        item: {coin_id: 0, large: "", name: "", price_btc: 0, small: ""},
+        item: {coin_id: 0, large: "", name: "", price_btc: 0, small: "",id: ""},
         large: "",
         name: coin.name,
         coin_id: undefined,
@@ -52,9 +52,21 @@ export const sherCoins = createEffect( {
 })
 export const pageLoaded = createEvent();
 
+export const priceEffect =createEffect({
+  handler:async ()=>{
+    const res = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`);
+    console.log(res)
+    const price = res.data.bitcoin.usd;
+    return price
+  }
+});
+export const $price = createStore<number>(1)
+    .on(priceEffect.doneData, (_, answer) =>
+        answer);
+
 export const $loading = combine([homeStore.pending, sherCoins.pending], ([с1, с2]) => с1 || с2)
 
-sample({ clock: pageLoaded, target:[sherCoins, homeStore]})
+sample({ clock: pageLoaded, target:[sherCoins, homeStore,priceEffect]})
 
 
 sample({ clock: getQuery, target:[sherCoins]})

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {$coins, $loading, getQuery, homeStore, pageLoaded, sherCoins,} from '../stores/homeStore';
+import {$coins, $loading, $price, getQuery, homeStore, pageLoaded, sherCoins,} from '../stores/homeStore';
 import {useUnit} from "effector-react";
 import {Link} from "react-router-dom";
+import Loading from "../component/loading";
 
 
 
@@ -9,6 +10,7 @@ export default function Home(){
 
   const [text, setText] = useState("");
   const coins = useUnit($coins);
+  const price = useUnit($price);
   const loading = useUnit($loading);
   const onEnter = (event:any) => event.key === 'Enter' && getQuery(text);
 
@@ -19,10 +21,7 @@ export default function Home(){
 
   if(loading){
     return (
-        <div className=" right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 h-4/5 ">
-            <div
-                className="border-t-transparent border-solid animate-spin  rounded-full border-b-emerald-800 border-8 h-64 w-64"></div>
-        </div>
+        <Loading/>
     )
   }
 
@@ -58,7 +57,8 @@ export default function Home(){
           <tbody className="divide-y divide-gray-200">
       {
         coins.map(coin => {
-
+            console.log("price",price);
+            console.log("info",coin.price_btc);
           return (
 
 
@@ -78,8 +78,16 @@ export default function Home(){
                     <Link to={`/${coin.id}`}>
                      {coin.name}
                      </Link></td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">{coin.price_btc}</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">{coin.price_btc}</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+
+                        <h3 className="text-2xl font-bold flex justify-center">
+                          {coin.price_btc}
+                      </h3>
+
+
+                      <p className="mt-0.5 text-sm">${coin.price_btc * price
+                      }</p>
+                  </td>
                 </tr>
 
 
