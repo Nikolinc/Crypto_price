@@ -4,6 +4,7 @@ export default interface coinType{
     coin_id: any;
     image: any;
      item: {
+         id: any;
          small: string;
          name: string;
          large: string;
@@ -12,9 +13,27 @@ export default interface coinType{
      };
 }
 
+
+
 export default interface coinArrayType{
     name: string;
     large: string;
-    id: number;
+    id: any;
     price_btc: number;
+}
+
+
+export enum currency{
+    usd = 'usd',
+    rub = "rub"
+}
+
+export  type currencyType = currency.rub | currency.usd;
+
+export interface infoType{
+    name: string,
+    symbol: string,
+    description:string,
+    links:string,
+    image:string,
 }
