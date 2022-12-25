@@ -34,6 +34,12 @@ export interface infoType{
     name: string,
     symbol: string,
     description:string,
-    links:string,
+    links:{
+
+            homepage:any,
+            twitter:string,
+            reddit:string,
+            github:any
+    },
     image:string,
 }
