@@ -40,8 +40,14 @@ export const infoCoinsEffect = createEffect({
                name:res.data.name,
                symbol: res.data.symbol,
                description:res.data.description.en,
-               links:res.data.links.homepage,
+               links:{
+                   homepage:res.data.links.homepage[0],
+                   twitter:`https://twitter.com/${res.data.links.twitter_screen_name}`,
+                   reddit:res.data.links.subreddit_url,
+                   github:res.data.links.repos_url.github[0]
+               },
                image:res.data.image.small,
+
 
         }
 
@@ -52,7 +58,12 @@ export const $infoCoins = createStore<infoType>(
     {  name: "",
     symbol: "",
     description:"",
-    links:"",
+    links: {
+        homepage: "",
+        twitter: "",
+        reddit: "",
+        github:""
+    },
     image:"",})
     .on(infoCoinsEffect.doneData, (_: any, answer: any) =>
         answer)
