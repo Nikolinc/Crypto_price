@@ -19,14 +19,14 @@ export default function Home(){
   },[]);
 
 
-  if(loading){
+  if(loading || coins.length === 0){
     return (
         <Loading/>
     )
   }
 
   return(
-    <div className=" grid grid-cols-1 gap-4 place-items-center ">
+    <div className=" grid grid-cols-1 gap-4 place-items-center">
 
       <label
 
@@ -50,15 +50,15 @@ export default function Home(){
   </span>
       </label>
 
-      <div className="overflow-x-auto w-3/5" >
+      <div className="overflow-x-auto w-2/5" >
         <table className="min-w-full divide-y divide-gray-200 text-sm">
 
 
           <tbody className="divide-y divide-gray-200">
       {
         coins.map(coin => {
-            console.log("price",price);
-            console.log("info",coin.price_btc);
+
+
           return (
 
 
@@ -78,15 +78,15 @@ export default function Home(){
                     <Link to={`/${coin.id}`}>
                      {coin.name}
                      </Link></td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                  <td className="whitespace-nowrap px-4 py-2 text-gray-700 flex flex-col justify-end">
 
-                        <h3 className="text-2xl font-bold flex justify-center">
-                          {coin.price_btc}
-                      </h3>
+                        <h5 className="text-xl font-bold">
+                          { coin.price_btc}BTC
+                      </h5>
 
 
-                      <p className="mt-0.5 text-sm">${coin.price_btc * price
-                      }</p>
+                      <p className="mt-0.5 text-sm">${(coin.price_btc * price).toFixed(2)
+                      }USD</p>
                   </td>
                 </tr>
 
@@ -97,10 +97,6 @@ export default function Home(){
           )
         })
       }
-
-
-
-
            </tbody>
         </table>
       </div>

@@ -1,7 +1,6 @@
 {
   "name": "crypto_price",
   "version": "0.1.0",
-  "homepage": "https://Nikolinc.github.io",
   "private": true,
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",

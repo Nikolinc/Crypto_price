@@ -14,9 +14,9 @@ export const homeStore = createEffect({
         name: coin.item.name,
         image: coin.item.small,
         id: coin.item.id,
-        price: coin.item.price_btc.toFixed(12)
-    }})
-
+        price_btc: coin.item.price_btc.toFixed(10)
+      }})
+    console.log("coins",coins)
     return coins;
 }});
 
@@ -46,7 +46,7 @@ export const sherCoins = createEffect( {
       });
     });
 
-
+    console.log(coins);
     return coins;
   }
 })
@@ -55,7 +55,6 @@ export const pageLoaded = createEvent();
 export const priceEffect =createEffect({
   handler:async ()=>{
     const res = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`);
-    console.log(res)
     const price = res.data.bitcoin.usd;
     return price
   }
