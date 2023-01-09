@@ -1,13 +1,13 @@
 {
-  "main.css": "/crypto_price/static/css/main.12a4dd99.chunk.css",
-  "main.js": "/crypto_price/static/js/main.98c33668.chunk.js",
-  "main.js.map": "/crypto_price/static/js/main.98c33668.chunk.js.map",
-  "runtime~main.js": "/crypto_price/static/js/runtime~main.356b4dad.js",
-  "runtime~main.js.map": "/crypto_price/static/js/runtime~main.356b4dad.js.map",
-  "static/js/2.8709e80a.chunk.js": "/crypto_price/static/js/2.8709e80a.chunk.js",
-  "static/js/2.8709e80a.chunk.js.map": "/crypto_price/static/js/2.8709e80a.chunk.js.map",
-  "index.html": "/crypto_price/index.html",
-  "precache-manifest.165be1e1e1f406d0393ba2af2774df82.js": "/crypto_price/precache-manifest.165be1e1e1f406d0393ba2af2774df82.js",
-  "service-worker.js": "/crypto_price/service-worker.js",
-  "static/css/main.12a4dd99.chunk.css.map": "/crypto_price/static/css/main.12a4dd99.chunk.css.map"
+  "main.css": "/Crypto_price/static/css/main.12a4dd99.chunk.css",
+  "main.js": "/Crypto_price/static/js/main.98c33668.chunk.js",
+  "main.js.map": "/Crypto_price/static/js/main.98c33668.chunk.js.map",
+  "runtime~main.js": "/Crypto_price/static/js/runtime~main.40ca5176.js",
+  "runtime~main.js.map": "/Crypto_price/static/js/runtime~main.40ca5176.js.map",
+  "static/js/2.8709e80a.chunk.js": "/Crypto_price/static/js/2.8709e80a.chunk.js",
+  "static/js/2.8709e80a.chunk.js.map": "/Crypto_price/static/js/2.8709e80a.chunk.js.map",
+  "index.html": "/Crypto_price/index.html",
+  "precache-manifest.5ce0dc685bfd50a789344df5352dbf13.js": "/Crypto_price/precache-manifest.5ce0dc685bfd50a789344df5352dbf13.js",
+  "service-worker.js": "/Crypto_price/service-worker.js",
+  "static/css/main.12a4dd99.chunk.css.map": "/Crypto_price/static/css/main.12a4dd99.chunk.css.map"
 }
